@@ -2,6 +2,7 @@ package com.moodanalyser;
 
 public class MoodAnalyser {
     public String message;
+    public String checkMood;
 
     public MoodAnalyser() {
 
@@ -11,16 +12,26 @@ public class MoodAnalyser {
         this.message = message;
     }
 
-    public String analyseMood() {
+    public String analyseMood() throws MoodAnalyserException {
         try {
+            if (message.isEmpty()) {
+                emptyMood();
+            }
             if (message.contains("sad")) {
-                return "SAD";
+                checkMood = "SAD";
             } else {
-                return "HAPPY";
+                checkMood = "HAPPY";
             }
         } catch (NullPointerException e) {
-            return "HAPPY";
+            throw new MoodAnalyserException("Please enter some message", ErrorType.NULL);
+        } catch (IllegalArgumentException e) {
+            throw new MoodAnalyserException("Please do not  enter empty message", ErrorType.EMPTY);
         }
+        return checkMood;
+    }
+
+    public void emptyMood() {
+        throw new IllegalArgumentException();
     }
 
 
