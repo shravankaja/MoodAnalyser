@@ -8,12 +8,12 @@ public class MoodAnalyserTest {
 
     @Test
     public void moodAnalyseTestNull() throws MoodAnalyserException {
-       try {
-           ExpectedException exceptionRule = ExpectedException.none();
+        try {
+            ExpectedException exceptionRule = ExpectedException.none();
             exceptionRule.expect(MoodAnalyserException.class);
             MoodAnalyser moodAnalyser = new MoodAnalyser(null);
             moodAnalyser.analyseMood();
-           Assertions.assertEquals("HAPPY", moodAnalyser.checkMood);
+            Assertions.assertEquals("HAPPY", moodAnalyser.checkMood);
         } catch (MoodAnalyserException e) {
 
         }

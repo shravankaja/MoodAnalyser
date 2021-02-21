@@ -34,7 +34,6 @@ public class MoodAnalyser {
         throw new IllegalArgumentException();
     }
 
-
     public static void main(String Args[]) {
         System.out.println("Welcome to mood Analyser");
     }
